@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
+        <link rel="stylesheet" href="./Counter.css"
+    </head>
+    <body>
+        <div class="container">
+            <div x-data="counter()">
+                <h1 class="counter-title">Counter</h1>
+                <h1 class="counter-value" x-text="count"></h1>
+                <button class="button" @click="increment()">Increment</button>
+                <button class="button" @click="decrement()">Decrement</button>
+                <button class="button" @click="reset()">Reset</button>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="./Counter.js"></script>
+</html>

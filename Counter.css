@@ -1,0 +1,29 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter-title {
+    font-size: 2rem;
+    color: red;
+    text-align: center;
+}
+
+.counter-value {
+    font-size: 2rem;
+    color: red;
+    text-align: center;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
