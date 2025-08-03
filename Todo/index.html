@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ToDo</title>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
+        <link rel="stylesheet" href="./index.css" />
+    </head>
+    <body>
+        <h1>Reminder</h1>
+        <div x-data="todoApp()" class="container">
+            <div class="input-container">
+                <input
+                    type="text"
+                    x-model="newTodo"
+                    placeholder="Keep thoughts here..."
+                    class="input"
+                />
+                <button @click="addTodo()" class="button">+</button>
+            </div>
+            <ul class="todo-list">
+                <template x-for="todo in todos" :key="todo.id">
+                    <li class="todo-item">
+                        <span x-text="todo.text"></span>
+                        <button
+                            @click="removeTodo(todo.id)"
+                            class="remove-button"
+                        >
+                            X
+                        </button>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </body>
+
+    <script>
+        function todoApp() {
+            return {
+                newTodo: '',
+                todos: [],
+                addTodo() {
+                    if (this.newTodo.trim() === '') return;
+                    this.todos.push({ id: Date.now(), text: this.newTodo });
+                    this.newTodo = '';
+                },
+                removeTodo(id) {
+                    this.todos = this.todos.filter((todo) => todo.id !== id);
+                },
+            };
+        }
+    </script>
+</html>
